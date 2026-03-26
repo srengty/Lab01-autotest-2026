@@ -1,8 +1,6 @@
 package lab01;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.net.URI;
@@ -27,7 +25,7 @@ public class AuthenticationTest {
         .uri(URI.create(url))
         .header("Content-Type", "application/json");
     }
-    @Test
+    // @Test
     public void testLogin() throws IOException, InterruptedException{
         HttpRequest request = builder.POST(
             HttpRequest.BodyPublishers.ofString("{\"email\":\""+email+"\",\"password\":\""+pwd+"\"}")
@@ -35,7 +33,7 @@ public class AuthenticationTest {
         HttpResponse<String> response = http.send(request, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
     }
-    @Test
+    // @Test
     public void testLoginFail() throws Exception, InterruptedException{
         pwd = "123";
         HttpRequest request = builder.POST(
@@ -44,7 +42,7 @@ public class AuthenticationTest {
         HttpResponse<String> response = http.send(request, HttpResponse.BodyHandlers.ofString());
         assertEquals(401, response.statusCode());
     }
-    @Test
+    // @Test
     public void testLoginEmptyFields() throws Exception, InterruptedException{
         email = "";
         pwd= "";

@@ -3,7 +3,7 @@ package lab01;
 public class User {
     private String email;
     private String password;
-    public tring getEmail() {
+    public String getEmail() {
         return email;
     }
     public void setEmail(String email) {
